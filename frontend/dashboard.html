@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Mental Wellness AI</title>
+  <script type="module" src="app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter Tight', sans-serif; }
+    /* Subtle abstract gradient background for artistic touch */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0, #fef3c7);
+      z-index: -2;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(99,102,241,0.05), transparent 70%);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="p-6 flex justify-between items-center bg-white shadow-md sticky top-0 z-10 border-b border-gray-200">
+    <h2 class="text-xl font-bold tracking-tight text-gray-900">🌿 Mental Wellness AI</h2>
+    <button onclick="logout()" 
+      class="bg-red-600 px-4 py-2 rounded-lg text-white hover:bg-red-700 transition">
+      Logout
+    </button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-6 bg-gradient-to-r from-purple-100 via-white to-green-100 rounded-b-3xl shadow-inner mb-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">Welcome to Your Wellness Dashboard</h1>
+    <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+      Connect your YouTube activity, let Gemini analyze your feed, and unlock insights, stories, and AI-generated visuals to enhance your mental wellness journey.
+    </p>
+  </section>
+
+  <!-- Actions -->
+  <main class="flex-1 flex flex-col items-center py-10 px-6 space-y-10">
+
+    <!-- Step 1: Connect -->
+    <div class="w-full max-w-3xl bg-white rounded-3xl shadow-lg p-8 border border-gray-200 transition hover:shadow-2xl">
+      <h2 class="text-2xl font-bold mb-4 text-gray-900">Step 1: Connect YouTube</h2>
+      <p class="text-gray-500 mb-6">Allow us to access your YouTube activity for personalized insights.</p>
+      <button onclick="connectYouTube()" 
+        class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-transform hover:scale-105">
+        Connect YouTube
+      </button>
+    </div>
+
+    <!-- Step 2: Analyze -->
+    <div class="w-full max-w-3xl bg-white rounded-3xl shadow-lg p-8 border border-gray-200 transition hover:shadow-2xl">
+      <h2 class="text-2xl font-bold mb-4 text-gray-900">Step 2: Analyze Your Feed</h2>
+      <p class="text-gray-500 mb-6">Gemini will analyze your feed and highlight wellness signals.</p>
+      <button onclick="getAnalysis()" 
+        class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-transform hover:scale-105">
+        Analyze Feed
+      </button>
+
+      <div id="analysis-box" class="mt-8 hidden text-left">
+        <h3 class="text-xl font-semibold mb-3 text-gray-900">Insights</h3>
+        <pre id="analysis-text" class="whitespace-pre-wrap bg-gray-50 p-4 rounded-xl text-sm text-gray-800 shadow-inner"></pre>
+      </div>
+    </div>
+
+    <!-- Step 3: Generate -->
+    <div class="w-full max-w-3xl bg-white rounded-3xl shadow-lg p-8 border border-gray-200 transition hover:shadow-2xl">
+      <h2 class="text-2xl font-bold mb-4 text-gray-900">Step 3: Create Stories & Images</h2>
+      <p class="text-gray-500 mb-6">Turn your analysis into an uplifting story or AI-generated artwork.</p>
+      <div class="flex flex-col md:flex-row gap-6 justify-center">
+        <button id="story-btn" onclick="generateFromAnalysis('story')" disabled
+          class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg text-lg font-semibold text-white transition opacity-50 cursor-not-allowed hover:opacity-100 hover:scale-105">
+          ✨ Generate Story
+        </button>
+        <button id="image-btn" onclick="generateFromAnalysis('image')" disabled
+          class="bg-orange-600 hover:bg-orange-700 px-8 py-4 rounded-lg text-lg font-semibold text-white transition opacity-50 cursor-not-allowed hover:opacity-100 hover:scale-105">
+          🎨 Generate Image
+        </button>
+      </div>
+
+      <div id="gen-result" class="mt-8 bg-gray-50 p-6 rounded-xl hidden text-left text-gray-800 shadow-inner"></div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="p-6 text-center text-gray-500 border-t border-gray-200 bg-white">
+    © 2025 Mental Wellness AI • Built with ❤️ and Gemini
+  </footer>
+
+</body>
+</html>

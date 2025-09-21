@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+firebase-admin
+python-dotenv
+pydantic
+google-api-python-client
+requests
+EOL

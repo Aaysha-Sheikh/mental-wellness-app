@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Wellness AI</title>
+  <script type="module" src="app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter Tight', sans-serif; }
+    /* Professional abstract gradient background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #f3f4f6, #e5e7eb, #d1d5db);
+      z-index: -2;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(99,102,241,0.1), transparent 70%);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+
+  <div class="w-full max-w-md p-8 rounded-3xl shadow-2xl bg-white border border-gray-200">
+    
+    <!-- Hero Section -->
+    <div class="text-center mb-6">
+      <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Mental Wellness AI</h1>
+      <p class="text-gray-600 text-md">Log in to access personalized insights and wellness tools.</p>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-box" class="space-y-4">
+      <input id="login-email" type="email" placeholder="Email" 
+        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none">
+      <input id="login-password" type="password" placeholder="Password" 
+        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none">
+      <button onclick="login()" 
+        class="w-full bg-purple-600 hover:bg-purple-700 text-white p-3 rounded-lg font-semibold transition">
+        Login
+      </button>
+      <p class="text-sm text-gray-600 text-center">
+        Don’t have an account? 
+        <a href="#" onclick="toggleForms()" class="text-purple-600 font-medium hover:underline">Sign up</a>
+      </p>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signup-box" class="space-y-4 hidden">
+      <input id="signup-email" type="email" placeholder="Email" 
+        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none">
+      <input id="signup-password" type="password" placeholder="Password" 
+        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none">
+      <button onclick="signup()" 
+        class="w-full bg-green-600 hover:bg-green-700 text-white p-3 rounded-lg font-semibold transition">
+        Sign Up
+      </button>
+      <p class="text-sm text-gray-600 text-center">
+        Already have an account? 
+        <a href="#" onclick="toggleForms()" class="text-green-600 font-medium hover:underline">Login</a>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>

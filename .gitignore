@@ -1,0 +1,37 @@
+﻿# Python / general
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+.venv
+*.egg-info/
+dist/
+build/
+# Node / frontend
+node_modules/
+npm-debug.log
+yarn-error.log
+# IDE/editor
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+# OS
+Thumbs.db
+# Firebase / misc
+firebase-debug.log
+# Secrets / local config
+*.env
+.env
+backend/serviceAccountKey.json
+serviceAccountKey.json
+*.key
+*.pem
+# large files
+*.sqlite
+*.db
+# OneDrive temp cruft (optional)
+~$*
