@@ -9,3 +9,4 @@ requests
 EOL
 flask
 google.generativeai
+gunicorn

@@ -35,3 +35,4 @@ serviceAccountKey.json
 *.db
 # OneDrive temp cruft (optional)
 ~$*
+backend/cr_logs.json
