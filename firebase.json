@@ -3,6 +3,9 @@
     "public": "frontend",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
+      { "source": "/authorize", "run": { "serviceId": "me-well-backend", "region": "us-central1" } },
+      { "source": "/oauth-callback", "run": { "serviceId": "me-well-backend", "region": "us-central1" } },
+      { "source": "/analyze", "run": { "serviceId": "me-well-backend", "region": "us-central1" } },
       { "source": "**", "destination": "/index.html" }
     ]
   }
