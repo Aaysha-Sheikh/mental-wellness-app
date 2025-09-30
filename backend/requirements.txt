@@ -4,5 +4,8 @@ firebase-admin
 python-dotenv
 pydantic
 google-api-python-client
+google_auth_oauthlib
 requests
 EOL
+flask
+google.generativeai
