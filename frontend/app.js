@@ -67,7 +67,7 @@ window.connectYouTube = async function () {
 
   // Open OAuth in a new window
   const authWindow = window.open(
-    `http://localhost:8000/authorize?uid=${uid}`,
+    `/authorize?uid=${uid}`,
     "_blank",
     "width=600,height=700"
   );
